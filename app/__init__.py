@@ -1,0 +1,1 @@
+"""anonfox FastAPI service package."""

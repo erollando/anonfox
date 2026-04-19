@@ -4,7 +4,13 @@ Reversible pseudonymization service for Dutch and English text, built with FastA
 
 ## What it does
 
-- Detects selected PII classes in text (`person`, `phone`, `email`)
+- Detects selected PII and secret classes in text:
+  - PII: `person`, `phone`, `email`
+  - Secrets:
+    - `jwt`, `api_key`, `webhook_secret`, `oauth_cloud_token`, `bearer_token`
+    - `session_token`, `private_key`, `private_key_inline`, `connection_string`
+    - `cloud_credential`, `cloud_access_key_id`, `cloud_secret_key_assignment`
+    - `package_saas_token`, `generic_secret`, `webhook_url`, `auth_header_token`
 - Replaces detections with deterministic placeholders (`@person1`, `@phone1`, ...)
 - Returns explicit mapping for reversible pseudonymization
 - Supports de-pseudonymization using the mapping object
@@ -12,6 +18,7 @@ Reversible pseudonymization service for Dutch and English text, built with FastA
   - Regex recognizers for structured entities (phone, email)
   - Heuristic recognizer for person entities with lowercase-aware logic
   - Optional spaCy NER provider for person detection
+  - Pattern-based recognizers for developer secrets (tokens, key blocks, DSNs)
 
 `person_mode` currently defaults to and behaves as `full_span`. `split_name` is reserved for a future extension.
 

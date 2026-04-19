@@ -2,9 +2,25 @@ from app.detection.types import Detection, EntityType
 
 
 _ENTITY_PRIORITY: dict[EntityType, int] = {
+    EntityType.private_key: 120,
+    EntityType.private_key_inline: 119,
+    EntityType.connection_string: 115,
+    EntityType.webhook_url: 113,
+    EntityType.bearer_token: 110,
+    EntityType.jwt: 108,
+    EntityType.api_key: 105,
+    EntityType.webhook_secret: 104,
+    EntityType.oauth_cloud_token: 103,
+    EntityType.cloud_secret_key_assignment: 101,
+    EntityType.cloud_access_key_id: 101,
+    EntityType.package_saas_token: 101,
+    EntityType.cloud_credential: 98,
+    EntityType.auth_header_token: 100,
+    EntityType.session_token: 99,
     EntityType.phone: 100,
     EntityType.email: 95,
     EntityType.person: 90,
+    EntityType.generic_secret: 40,
 }
 
 
